@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalExamCambpellJon.MainPage"
+             Title="Harry Potter Spell Book"
+             IconImageSource="hplogo.png">
+
+    <!--Base grid to hold background image-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--Image viewer-->
+        <Image x:Name="ImagePaperBackground"
+               IsVisible="Visible"
+               Aspect="AspectFit"
+               HeightRequest="900"
+               WidthRequest="540"
+               Source="paper.png"
+               Grid.Row="0"
+               Margin="0" />
+        <!--Scroll view to allow overlay content viewing control-->
+        <ScrollView VerticalScrollBarVisibility="Always"
+                    VerticalOptions="Start">
+            <VerticalStackLayout VerticalOptions="Start"
+                                 Margin="10"
+                                 HeightRequest="900"
+                                 WidthRequest="530">
+                <!--Nested grid to allow placement of controllers over background image-->
+                <Grid VerticalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--App title label-->
+                    <Label Text="Harry Potter Spell book"
+                           FontFamily="HarryP"
+                           FontSize="Header"
+                           Margin="10,10,10,30"
+                           TextColor="#75512B"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="3"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+
+                    <!-- Select Spell Category from List-->
+                    <Picker x:Name="PickerSpellCategory"
+                            Title="Select Spell Category"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            SelectedIndexChanged="PickerSpellCategory_SelectedIndexChanged"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Start"
+                            Background="#7F735A"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontAutoScalingEnabled="True"
+                            TitleColor="#000000"
+                            BackgroundColor="#464545">
+                        <!--Upload category array to picker-->
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Charm</x:String>
+                                <x:String>Conjuration</x:String>
+                                <x:String>Counter-charm</x:String>
+                                <x:String>Curse</x:String>
+                                <x:String>Dark Charm</x:String>
+                                <x:String>Healing Spell</x:String>
+                                <x:String>Hex</x:String>
+                                <x:String>Jinx</x:String>
+                                <x:String>Transportation</x:String>
+                                <x:String>Transfiguration</x:String>
+                                <x:String>Transformation</x:String>
+                                <x:String>Vanishment</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!--Previous Spell Button-->
+                    <Button x:Name="ButtonPreviousSpell"
+                            Text="◄"
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Margin="20,10,10,10"
+                            HorizontalOptions="Center"
+                            Clicked="ButtonPreviousSpell_Clicked"
+                            TextColor="#000000"
+                            Background="#F3E9C5"
+                            FontSize="Header" />
+
+                    <!--Button Labels for Previous and Next Spell-->
+                    <Label Text="Previous Spell"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Next Spell"
+                           Grid.Column="2"
+                           Grid.Row="2"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+
+                    <!--Next Spell Button-->
+                    <Button x:Name="ButtonNextSpell"
+                            Text="►"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="10,10,20,10"
+                            HorizontalOptions="Center"
+                            Clicked="ButtonNextSpell_Clicked"
+                            TextColor="#000000"
+                            Background="#F3E9C5"
+                            FontSize="Header" />
+
+                    <!--Spell Name Label-->
+                    <Label x:Name="LabelSpellName"
+                           Text="Select Spell Category First"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Title"
+                           FontFamily="ParryHotter"
+                           Margin="20,10,2,2"
+                           Grid.Column="0"
+                           Grid.Row="3"
+                           TextColor="#503D30" />
+
+                    <!--Image viewer, collapse if NULL-->
+                    <Image x:Name="ImageSpellPicture"
+                           IsVisible="Collapse"
+                           HeightRequest="200"
+                           WidthRequest="200"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Margin="0,0,30,0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+                    <!--Creator Label, collapse if NULL-->
+                    <Label Text="Creator:"
+                           x:Name="LblCreator"
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           FontFamily="AquilineTwo"
+                           Margin="20,2,10,2"
+                           Grid.Column="0"
+                           Grid.Row="4"
+                           TextColor="#503D30" />
+
+                    <Label x:Name="LabelCreator"
+                           Text="..."
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           Margin="10,2,20,2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="4"
+                           TextColor="#503D30" />
+
+                    <!--Spell Effects Label-->
+                    <Label Text="Spell Effects:"
+                           x:Name="LblEffect"
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           FontFamily="AquilineTwo"
+                           Margin="20,2,10,2"
+                           Grid.Column="0"
+                           Grid.Row="5"
+                           TextColor="#503D30" />
+
+                    <Label x:Name="LabelEffect"
+                           Text="..."
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           Margin="10,2,20,2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="5"
+                           TextColor="#503D30" />
+
+                    <!--Casting Hand Action Label-->
+                    <Label Text="Casting Action:"
+                           x:Name="LblHand"
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           FontFamily="AquilineTwo"
+                           Margin="20,2,10,2"
+                           Grid.Column="0"
+                           Grid.Row="6"
+                           TextColor="#503D30" />
+
+                    <Label x:Name="LabelHand"
+                           Text="..."
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           Margin="10,2,20,2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="6"
+                           TextColor="#503D30" />
+
+                    <!--Incantation Label-->
+                    <Label Text="Incantation:"
+                           x:Name="LblIncantation"
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           FontFamily="AquilineTwo"
+                           Margin="20,2,10,2"
+                           Grid.Column="0"
+                           Grid.Row="7"
+                           TextColor="#503D30" />
+
+                    <Label x:Name="LabelIncantation"
+                           Text="..."
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           Margin="10,2,20,2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="7"
+                           TextColor="#503D30" />
+
+                    <!--Light Label-->
+                    <Label Text="Light:"
+                           x:Name="LblLight"
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           FontFamily="AquilineTwo"
+                           Margin="20,2,10,2"
+                           Grid.Column="0"
+                           Grid.Row="8"
+                           TextColor="#503D30" />
+
+                    <Label x:Name="LabelLight"
+                           Text="..."
+                           IsVisible="Collapse"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           Margin="10,2,20,2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="8"
+                           TextColor="#503D30" />
+
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
