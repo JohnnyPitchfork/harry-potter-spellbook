@@ -1,24 +1,35 @@
-# Harry Potter Spellbook App (MAUI)
+🪄 Harry Potter Spellbook App (.NET MAUI)
+✨ Overview
+A cross-platform mobile spellbook app built with C# / .NET MAUI, connected to the PotterDB REST API to dynamically fetch and display spell information from the Harry Potter universe.
 
-## Overview
+This project began as an educational assignment and now serves as a foundation for showcasing cross-platform development, API integration, and clean architecture.
 
-A cross-platform spellbook application built with **C#/.NET MAUI**, connecting to a public Harry Potter API to dynamically fetch and display spell information.
+📱 Features
+🔍 Browse spells by category (e.g., Charms, Hexes, Jinxes)
 
-This project was created as part of educational coursework to demonstrate cross-platform mobile application development, API integration, and object-oriented programming concepts.
+📄 Paginated spell browsing with dynamic loading
 
----
+⚡ API-driven JSON data parsing
 
-## Features
+📱 Cross-platform support (Android, iOS, Windows)
 
-- Browse spells by category (e.g., Charms, Hexes, Jinxes)
-- Paginated spell browsing and dynamic loading
-- API-driven JSON data handling
-- Built using C#/.NET MAUI for cross-platform support
+🧱 Built with object-oriented principles and XAML-based UI
 
----
+🛠️ Technologies
+.NET MAUI – Cross-platform framework
 
-Roadmap
-This project began as a student assignment and is actively being developed into a polished, showcase-ready app. Planned improvements include:
+C# – Core programming language
+
+XAML – UI layout and design
+
+REST API – Live data from PotterDB
+
+JSON – Structured data handling
+
+MVVM (coming soon)
+
+🗺️ Roadmap
+This project is actively evolving into a professional-quality showcase app. Planned improvements include:
 
  Basic spell fetching and display from PotterDB
 
@@ -33,24 +44,11 @@ This project began as a student assignment and is actively being developed into 
  Enhance README with visuals, badges, and documentation
 
  Set up CI/CD pipeline using GitHub Actions
- 
----
 
-## Technologies Used
+🚧 Current Status
+✅ Functional MVP
+⚙️ Actively being refactored and improved
+🌟 Intended for portfolio and job applications
 
-- C# / .NET MAUI
-- JSON Data Parsing
-- REST API Integration
-- XAML UI Design
-- Object-Oriented Programming (OOP)
-
----
-
-## Status
-
-Completed as an educational project.  
-Future improvements could include UI enhancements, offline caching, and user bookmarks.
-
----
-
-*Built by Jonathan Campbell for learning, creativity, and cross-platform development mastery.*
+🙋‍♂️ About the Developer
+Created by Jonathan Campbell as a learning project to explore mobile app development, modern .NET practices, and creative problem-solving in software.
