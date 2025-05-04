@@ -17,6 +17,25 @@ This project was created as part of educational coursework to demonstrate cross-
 
 ---
 
+Roadmap
+This project began as a student assignment and is actively being developed into a polished, showcase-ready app. Planned improvements include:
+
+ Basic spell fetching and display from PotterDB
+
+ Refactor code for maintainability and clarity
+
+ Implement robust error handling for API failures
+
+ Apply MVVM architecture to decouple logic and UI
+
+ Introduce unit testing for key components
+
+ Enhance README with visuals, badges, and documentation
+
+ Set up CI/CD pipeline using GitHub Actions
+ 
+---
+
 ## Technologies Used
 
 - C# / .NET MAUI
